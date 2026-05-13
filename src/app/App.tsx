@@ -97,9 +97,9 @@ export default function App() {
       const windowWidth = window.innerWidth;
       const windowHeight = window.innerHeight;
 
-      // 计算缩放比例，保持宽高比
-      const scaleX = (windowWidth - 32) / VIEW_W; // 减去 padding
-      const scaleY = (windowHeight - 32) / VIEW_H;
+      // 计算缩放比例，保持宽高比，留少量边距
+      const scaleX = (windowWidth - 16) / VIEW_W; // 减少 padding
+      const scaleY = (windowHeight - 16) / VIEW_H;
       const newScale = Math.min(scaleX, scaleY, 1); // 最大不超过 1
 
       setScale(newScale);
@@ -179,9 +179,9 @@ export default function App() {
   const size = FRAME_SIZES[frame];
 
   return (
-    <div className="bg-neutral-900 min-h-screen w-full flex items-center justify-center p-4">
+    <div className="bg-black min-h-screen w-full flex items-center justify-center overflow-hidden">
       <div
-        className="relative bg-black overflow-hidden shadow-2xl origin-center"
+        className="relative bg-black overflow-hidden shadow-2xl"
         style={{
           width: VIEW_W,
           height: VIEW_H,
