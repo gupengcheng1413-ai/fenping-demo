@@ -185,12 +185,19 @@ export default function App() {
       <div
         className="relative bg-black overflow-hidden shadow-2xl"
         style={{
-          width: VIEW_W,
-          height: VIEW_H,
-          transform: `scale(${scale})`,
-          transformOrigin: 'center center'
+          width: VIEW_W * scale,
+          height: VIEW_H * scale,
         }}
       >
+        <div
+          className="absolute top-0 left-0"
+          style={{
+            width: VIEW_W,
+            height: VIEW_H,
+            transform: `scale(${scale})`,
+            transformOrigin: 'top left'
+          }}
+        >
         {size ? (
           <>
             <div
@@ -286,6 +293,7 @@ export default function App() {
             style={{ left: 1580, top: 180, width: 52, height: 52 }}
           />
         )}
+        </div>
       </div>
     </div>
   );
